@@ -5,7 +5,7 @@ from pathlib import Path
 from local_connection import add_repository_item, connect_local_repository, list_repository_items
 
 
-class LocalConnectionTests(unittest.TestCase):
+class LocalConnectionTest(unittest.TestCase):
     def test_can_connect_and_persist_items_in_local_repository(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
             db_file = Path(temp_dir) / "repo.db"
@@ -21,4 +21,3 @@ class LocalConnectionTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

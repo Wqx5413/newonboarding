@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import sqlite3
 from pathlib import Path
-from typing import Iterable
 
 
 def connect_local_repository(db_path: str = "data/local_repository.db") -> sqlite3.Connection:
@@ -30,8 +29,7 @@ def add_repository_item(connection: sqlite3.Connection, name: str) -> None:
     connection.commit()
 
 
-def list_repository_items(connection: sqlite3.Connection) -> Iterable[str]:
+def list_repository_items(connection: sqlite3.Connection) -> list[str]:
     """Read all items currently stored in the local repository table."""
     rows = connection.execute("SELECT name FROM repository_items ORDER BY id").fetchall()
     return [row[0] for row in rows]
-
