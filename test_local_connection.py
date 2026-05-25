@@ -15,7 +15,9 @@ class LocalConnectionTest(unittest.TestCase):
             add_repository_item(connection, "newonboarding")
             add_repository_item(connection, "newonboarding")
 
-            self.assertEqual(list_repository_items(connection), ["newonboarding"])
+            items = list_repository_items(connection)
+            self.assertEqual(len(items), 1)
+            self.assertEqual(items, ["newonboarding"])
             self.assertTrue(db_file.exists())
 
 
